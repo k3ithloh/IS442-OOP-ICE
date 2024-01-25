@@ -20,7 +20,7 @@ public class Soldier {
   }
 
   public String toString(){
-    return "Soldier name is: " + getName() + "and his/her allowance is $" + getGrossAllowance()  ; 
+    return "Soldier {name='" + getName() +"', baseAllowance=" + getBaseAllowance() + "}" ; 
   }
 
 }
