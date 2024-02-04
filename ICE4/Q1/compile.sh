@@ -1,0 +1,2 @@
+# javac -d classes -cp src src/farming/type/Animal.java src/farming/type/Dog.java src/farming/type/Cat.java src/farming/type/Cow.java src/farming/AnimalFarm.java src/farming/app/AnimalFarmTest.java
+javac -d classes -cp src src/farming/type/* src/farming/AnimalFarm.java src/farming/app/* 
