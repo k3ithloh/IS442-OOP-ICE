@@ -1,5 +1,11 @@
+package farming;
 
 import java.util.ArrayList;
+
+import farming.type.Animal;
+import farming.type.Cat;
+import farming.type.Dog;
+import farming.type.Cow;
 
 public class AnimalFarm {
     private ArrayList<Animal> animals = new ArrayList<>();
