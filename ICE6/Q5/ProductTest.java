@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class ProductTest {
   public static void main(String[] args){
@@ -13,5 +14,15 @@ public class ProductTest {
   public static void save(ArrayList<Product> productList, String pathAndFileName){
     //TODO: goes through products and saves each Product as a line in file
     //format: name,quantity,price
+    // String[] arrOfPathFileName = pathAndFileName.split("\\\\");
+    // System.out.println(arrOfPathFileName[0]);
+    // System.out.println(arrOfPathFileName[1]);
+
+    FileWriter newFile = new FileWriter(pathAndFileName);
+    
+    // File newFile = new File(arrOfPathFileName[0]);
+    // try {
+
+    // }
   }
 }
