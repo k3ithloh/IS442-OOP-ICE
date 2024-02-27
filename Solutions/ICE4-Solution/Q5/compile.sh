@@ -1,0 +1,1 @@
+javac -d out -classpath lib/mailapi-1.5.5.jar:src src/demo/Tester.java

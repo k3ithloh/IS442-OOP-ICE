@@ -1,0 +1,1 @@
+javac -d classFiles -classpath lib/farming.jar;sourceFiles sourceFiles/farming/app/AnimalFarmTest.java

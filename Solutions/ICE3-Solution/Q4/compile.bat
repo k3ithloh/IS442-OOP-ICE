@@ -1,0 +1,1 @@
+javac -d classes -classpath src;library/Ticketing.jar src/ticketing/test/TicketUtilityTest.java

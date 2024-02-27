@@ -1,0 +1,1 @@
+javac -d classes -classpath src src/farming/app/AnimalFarmTest.java
