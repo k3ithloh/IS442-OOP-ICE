@@ -86,6 +86,7 @@ public class EqualsTest{
         ProjectManager e6 = new ProjectManager("alpha", "201910", projects1);
         ProjectManager e7 = new ProjectManager("alpha", "201910", projects2);
         
+        // ! Test 9
         num++;
         System.out.printf("Test %d%n", num);
         System.out.println("Expected : true");

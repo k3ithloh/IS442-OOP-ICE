@@ -1,6 +1,7 @@
 public class WebColorTest {
     public static void main(String[] args) {
         int tc_num = 1;
+        //! Test 1
         {
             System.out.println("Test " + tc_num++);
             WebColor webcolor = new WebColor("#FFEEA0");
@@ -9,6 +10,7 @@ public class WebColorTest {
             System.out.println();
         }
 
+        //! Test 2
         {
             System.out.println("Test " + tc_num++);
             try {
