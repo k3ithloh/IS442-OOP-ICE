@@ -2,9 +2,9 @@ package assessment.app;
 
 import java.util.*;
 import java.io.*;
-import lib.thymeleaf.*;
-import lib.thymeleaf.context.*;
-import lib.thymeleaf.templateresolver.*;
+import org.thymeleaf.*;
+import org.thymeleaf.context.*;
+import org.thymeleaf.templateresolver.*;
 // import org.thymeleaf.templatemode.*;
 import assessment.entity.*;
 

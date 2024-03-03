@@ -1,1 +1,1 @@
-javac -proc:none -d generated -cp "conf:lib/log4j/*:lib/thymeleaf/*:src" src/assessment/app/Example.java
+javac -proc:none -d generated -cp conf;lib/log4j/*;lib/thymeleaf/* -sourcepath src src/assessment/app/Example.java
