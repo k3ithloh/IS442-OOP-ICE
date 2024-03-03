@@ -1,3 +1,4 @@
+package entity;
 
 public class Product {
     private String name;
