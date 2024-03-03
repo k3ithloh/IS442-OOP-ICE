@@ -6,7 +6,6 @@ public class Section {
     private Course course;
     private Staff[] staff;
 
-
     public Section(String number, Course course, Staff[] staff) {
         this.number = number;
         this.course = course;
@@ -25,4 +24,12 @@ public class Section {
         return staff;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        return false;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
 }
