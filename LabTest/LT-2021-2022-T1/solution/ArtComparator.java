@@ -8,12 +8,12 @@ public class ArtComparator implements Comparator<ArtTest> {
         if (!art.isValid()) {
             return 1;
         }
-        if (art.isNegative())  {
+        if (art.isNegative()) {
             return -1;
         }
         return 0;
     }
-    
+
     @Override
     public int compare(ArtTest o1, ArtTest o2) {
         int compare = o1.getEmployeeId().compareTo(o2.getEmployeeId());
@@ -38,7 +38,8 @@ public class ArtComparator implements Comparator<ArtTest> {
 
             tests = new ArrayList<>(tests);
             tests.sort(new ArtComparator());
-            System.out.println("Expected:[apple(Positive, 10/10/2021 10:10), bear(Positive, 10/10/2021 10:10), car(Positive, 10/10/2021 10:10)]");
+            System.out.println(
+                    "Expected:[apple(Positive, 10/10/2021 10:10), bear(Positive, 10/10/2021 10:10), car(Positive, 10/10/2021 10:10)]");
             System.out.println("Actual  :" + tests);
             System.out.println();
         }
@@ -51,7 +52,8 @@ public class ArtComparator implements Comparator<ArtTest> {
 
             tests = new ArrayList<>(tests);
             tests.sort(new ArtComparator());
-            System.out.println("Expected:[bear(Invalid, 10/10/2021 10:10), bear(Positive, 10/10/2021 10:11), bear(Negative, 10/10/2021 10:12)]");
+            System.out.println(
+                    "Expected:[bear(Invalid, 10/10/2021 10:10), bear(Positive, 10/10/2021 10:11), bear(Negative, 10/10/2021 10:12)]");
             System.out.println("Actual  :" + tests);
             System.out.println();
         }
@@ -64,7 +66,8 @@ public class ArtComparator implements Comparator<ArtTest> {
 
             tests = new ArrayList<>(tests);
             tests.sort(new ArtComparator());
-            System.out.println("Expected:[bear(Negative, 10/10/2021 10:10), bear(Positive, 10/10/2021 10:10), bear(Invalid, 10/10/2021 10:10)]");
+            System.out.println(
+                    "Expected:[bear(Negative, 10/10/2021 10:10), bear(Positive, 10/10/2021 10:10), bear(Invalid, 10/10/2021 10:10)]");
             System.out.println("Actual  :" + tests);
             System.out.println();
         }
