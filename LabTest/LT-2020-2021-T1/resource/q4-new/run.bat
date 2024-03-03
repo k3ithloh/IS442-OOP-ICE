@@ -1,0 +1,1 @@
+java -cp conf;lib/log4j/*;lib/thymeleaf/*;generated Example

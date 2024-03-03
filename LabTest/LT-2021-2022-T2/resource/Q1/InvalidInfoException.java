@@ -1,0 +1,8 @@
+/*
+ *
+ * Name:
+ */
+
+public class InvalidInfoException {
+   
+}
