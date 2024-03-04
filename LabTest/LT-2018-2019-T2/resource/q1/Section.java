@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Section {
@@ -26,6 +27,27 @@ public class Section {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o instanceof Section) {
+            Section newO = (Section) o;
+            if (this.getCourse().equals(newO.getCourse())) {
+                // check if Staff[] is the same length for both
+                Staff[] staffArray = this.getStaff();
+                Staff[] staffArray2 = newO.getStaff();
+                if (staffArray.length == staffArray2.length) {
+                    List<Staff> staffList2 = Arrays.asList(staffArray2);
+                    for (Staff staffMember : staffArray) {
+                        if (!staffList2.contains(staffMember)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 
