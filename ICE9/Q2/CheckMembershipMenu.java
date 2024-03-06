@@ -26,7 +26,7 @@ public class CheckMembershipMenu {
                 case 1 :
                     System.out.print("Enter the student's name> ");
                     String studentName = sc.nextLine();
-                    System.out.println("Enter the team's name");
+                    System.out.print("Enter the team's name> ");
                     String teamName = sc.nextLine();
 
                     checkMembershipDuration(studentName, teamName);
@@ -38,12 +38,27 @@ public class CheckMembershipMenu {
                     System.out.println("Enter a choice between 1 to 2");
             }
         } while (choice != 2);
+        
     }
 
     // complete the checkMembershipDuration method here
     public void checkMembershipDuration(String studentName, String teamName){
-        int timeDifference = this.ctrl.checkMembershipDuration(teamName, studentName);
+        int membershipDuration = this.ctrl.checkMembershipDuration(teamName, studentName);
 
-        if ()
+        if (membershipDuration == -1){
+            System.out.printf("%s is not in the team %s.", studentName, teamName);
+            System.out.println("");
+            System.out.println("");
+        }
+        else if (membershipDuration == 0){
+            System.out.printf("%s joined the team when the team is formed.", studentName);
+            System.out.println("");
+            System.out.println("");
+        }
+        else {
+            System.out.printf("%s joined the team %t days after the team is formed", studentName, membershipDuration);
+            System.out.println("");
+            System.out.println("");
+        }
     }
 }
