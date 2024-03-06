@@ -1,6 +1,6 @@
 /*
- * Name:
- * Email ID:
+ * Name: Keith Loh
+ * Email ID: keith.loh.2021
  */
 
 import java.util.*;
@@ -11,7 +11,7 @@ public class Q1d {
      */
     public static ArrayList<String> getIncreasingCharWords(ArrayList<String> inputs) {
         // insert your code here.
-
+        
         return null;
         // to make this code compile. Please modify accordingly!
 

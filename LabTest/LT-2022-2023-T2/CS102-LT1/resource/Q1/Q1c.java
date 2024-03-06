@@ -9,38 +9,60 @@ public class Q1c {
     /*
      * Write the method getMostCommonVowel
      */
+
+    public static boolean isVowel(char c) {
+    return "AEIOUaeiou".indexOf(c) != -1;
+    }
+
     public static ArrayList<Character> getMostCommonVowel(ArrayList<String> inputs) {
         // ! ANSWER IS STILL WRONG
         // insert your code here.
         HashMap<Character, Integer> vowelCounts = new HashMap<>();
-        for (char vowel : new char[] { 'a', 'e', 'i', 'o', 'u' }) {
-            vowelCounts.put(vowel, 0);
-        }
 
-        for (String word : inputs) {
-            HashSet<Character> uniqueVowels = new HashSet<>();
-            for (char ch : word.toLowerCase().toCharArray()) {
-                if (vowelCounts.containsKey(ch)) {
-                    uniqueVowels.add(ch);
+        ArrayList<Character> result = new ArrayList<>();
+
+        // for (char vowel : new char[] { 'a', 'e', 'i', 'o', 'u' }) {
+        //     vowelCounts.put(vowel, 0);
+        // }
+
+        for (String input : inputs){
+            String tempString = input.toLowerCase();
+            Set<Character> uniqueVowel = new HashSet<Character>();
+            for (int i = 0; i < tempString.length(); i ++){
+                char character = tempString.charAt(i);
+                if (isVowel(character)){
+                    if (!uniqueVowel.contains(character)){
+                        if (vowelCounts.containsKey(character)){
+                        int newValue = vowelCounts.get(character) + 1;
+                        vowelCounts.put(character, newValue);
+                        }
+                    else {
+                            vowelCounts.put(character, 1);
+                        }
+                    }
                 }
             }
-            for (char vowel : uniqueVowels) {
-                vowelCounts.put(vowel, vowelCounts.get(vowel) + 1);
+        }
+
+        // System.out.println(vowelCounts);
+        // int maxCount = Collections.max(vowelCounts.entrySet(), Map.Entry.comparingByValue()).getKey();
+        // System.out.println("the maxcount is " + maxCount);
+        if (!vowelCounts.isEmpty()){
+            int maxCount = Collections.max(vowelCounts.entrySet(), Map.Entry.comparingByValue()).getValue();
+
+            for(Map.Entry<Character, Integer> entry : vowelCounts.entrySet()){
+
+                Character key = entry.getKey();
+                int value = entry.getValue();
+                // System.out.println(value==maxCount);
+                
+                if(value==maxCount){
+                    result.add(key);
+                }
             }
         }
-
-        int maxCount = Collections.max(vowelCounts.values());
-        ArrayList<Character> result = new ArrayList<>();
-        for (Map.Entry<Character, Integer> entry : vowelCounts.entrySet()) {
-            if (entry.getValue() == maxCount) {
-                result.add(entry.getKey());
-            }
-        }
-
-        if (result.isEmpty()) {
-            return new ArrayList<>(); // Return an empty list if no vowels found
-        }
-
+        
+        
         return result;
         // to make this code compile. Please modify accordingly!
     }
