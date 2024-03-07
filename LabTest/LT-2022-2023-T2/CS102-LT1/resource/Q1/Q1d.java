@@ -11,8 +11,27 @@ public class Q1d {
      */
     public static ArrayList<String> getIncreasingCharWords(ArrayList<String> inputs) {
         // insert your code here.
-        
-        return null;
+        ArrayList<String> resultArray = new ArrayList<String>();
+        for (String input : inputs) {
+            boolean increasingChar = true;
+            String tempString = input.toLowerCase();
+            int index1 = 0;
+            int index2 = 1;
+
+            int stringLength = tempString.length();
+            while (index2 < stringLength) {
+                if (tempString.charAt(index2) < tempString.charAt(index1)) {
+                    increasingChar = false;
+                }
+                index1++;
+                index2++;
+            }
+            if (increasingChar == true) {
+                resultArray.add(input);
+            }
+        }
+
+        return resultArray;
         // to make this code compile. Please modify accordingly!
 
     }
