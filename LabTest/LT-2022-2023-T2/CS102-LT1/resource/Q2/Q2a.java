@@ -1,6 +1,6 @@
 /*
- * Name:
- * Email ID:  
+ * Name: Keith Loh
+ * Email ID:  keith.loh.2021
  */
 
 import java.util.*;
@@ -45,7 +45,7 @@ public class Q2a {
     public static void enrol(String name, String level, String dateJoined, String parent,
             ArrayList<School> schools) {
         // insert your code here.
-
+            
     }
 
 
