@@ -54,7 +54,10 @@ public class Q1 {
         }
         int min = numbers.get(0);
         for (int i : numbers) {
-            min = min < i ? min : i;
+            if ( i < min ){
+                min = i;
+            }
+            // min = min < i ? min : i;
         }
         return min; // to make this code compile. Please modify accordingly!
     }

@@ -47,6 +47,8 @@ public class ArtComparator implements Comparator<ArtTest> {
         return getValidityInt(o1) - getValidityInt(o2);
     }
 
+        
+    }
     public static void main(String[] args) {
         {
             List<ArtTest> tests = List.of(

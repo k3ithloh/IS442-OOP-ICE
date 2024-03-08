@@ -1,6 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class CovidUtility2 {
 
+     public static Map<String,Long> getTotalTimeInOffice(List<Entry> entries, SimpleDate date){
+        Map<String,Long> timeMap = new TreeMap<String, Long>();
+        if (entries == null || entries.size() == 0){
+                return timeMap;
+        }
+        
+        for (Entry entry : entries){
+                if (entry.getStartDateTime().getDate().equals(date)){
+                       long timeSpent = entry.getStartDateTime().until(entry.getEndDateTime());
+                       if (timeMap.containsKey(entry.getEmployeeId())){
+                                long temp = timeMap.get(entry.getEmployeeId());
+                                timeSpent += temp;
+                                timeMap.put(entry.getEmployeeId(), timeSpent);
+                       }
+                       timeMap.put(entry.getEmployeeId(),timeSpent); 
+                }
+        }
+        return timeMap;
+        }
     public static void main(String[] args) {
         {
             List<Entry> entries = List.of(

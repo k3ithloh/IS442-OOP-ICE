@@ -1,7 +1,78 @@
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Set;
 
 public class CovidUtility3 {
 
-        
+	public static String[] getViolators(List<Employee> employeeList, List<Entry> entries){
+
+		Set<String> violators = new TreeSet<>();
+		HashMap<Employee, int[]> nonEssentialMap = new HashMap<>();
+		// Get the non essential workers
+		for (Employee employee : employeeList){
+			if (employee instanceof NonEssentialEmployee){
+				NonEssentialEmployee tempEmployee = (NonEssentialEmployee) employee;
+				nonEssentialMap.put(tempEmployee, tempEmployee.getDaysOfWeek());
+			}
+		}
+
+		for (Entry entry : entries){
+			SimpleDateTime startDate = entry.getStartDateTime();
+			SimpleDateTime endDate = entry.getEndDateTime();
+			int dayOfStart = startDate.getDayOfWeek();
+			int dayOfStop = startDate.getDayOfWeek();
+			String employeeId = entry.getEmployeeId();
+			int [] daysOfWeek = nonEssentialMap.get(employeeId);
+			if (daysOfWeek != null && Arrays.stream(daysOfWeek).anyMatch(day -> day == dayOfStart)) {
+				violators.add(employeeId);
+			}
+			if (daysOfWeek != null && Arrays.stream(daysOfWeek).anyMatch(day -> day == dayOfStop)) {
+				violators.add(employeeId);
+			}
+			// if (nonEssentialMap.get(employeeId).includes(dayOfStart)){
+			// 	violators.add(nonEssentialMap.getKey(employeeId));
+			// }
+			// if (nonEssentialMap.get(employeeId).includes(dayOfStop)){
+			// 	violators.add(nonEssentialMap.getKey(employeeId));
+			// }
+		}
+		System.out.println(violators);
+		String[] violatorsArray = violators.toArray(new String[violators.size()]);
+		return violatorsArray;
+	}
+	
+	// public static String[] getViolators(List<Employee> employeeList, List<Entry> entries) {
+    // Map<String, int[]> allowed = new HashMap<>();
+    // for (Employee e : employeeList) {
+    //     if (e instanceof NonEssentialEmployee) {
+    //         NonEssentialEmployee nonEssential = (NonEssentialEmployee) e;
+    //         int[] allowedDays = nonEssential.getDaysOfWeek();
+    //         if (allowedDays == null) {
+    //             allowedDays = new int[0];
+    //         }
+    //         Arrays.sort(allowedDays);
+    //         allowed.put(e.getEmployeeId(), allowedDays);
+    //     } else {
+    //         allowed.put(e.getEmployeeId(), new int[]{1, 2, 3, 4, 5, 6, 7});
+    //     }
+    // }
+
+    // Set<String> violators = new HashSet<>();
+    // for (Entry entry : entries) {
+    //     int dayOfWeek = entry.getStartDateTime().getDayOfWeek();
+    //     int[] allowedDays = allowed.get(entry.getEmployeeId());
+
+    //     if (Arrays.binarySearch(allowedDays, dayOfWeek) < 0) {
+    //         violators.add(entry.getEmployeeId());
+    //     }
+    // }
+
+//     return violators.toArray(new String[violators.size()]);
+// }
     public static void main(String[] args) {
         {
 

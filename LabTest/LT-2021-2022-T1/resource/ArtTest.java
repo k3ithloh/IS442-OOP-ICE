@@ -50,7 +50,12 @@ public class ArtTest {
         return result.equals("C");
     }
 
-    public boolean equals(ArtTest otherTest) {
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof ArtTest)){
+            return false;
+        }
+        ArtTest otherTest = (ArtTest) obj;
         if (this.employeeId.equals(otherTest.employeeId) && this.result.equals(otherTest.result)
                 && this.date.equals(otherTest.date)) {
             return true;

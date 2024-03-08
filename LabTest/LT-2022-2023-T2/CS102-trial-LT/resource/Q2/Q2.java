@@ -1,6 +1,6 @@
 /*
- * Name:
- * Email ID:  
+ * Name: Keith Loh
+ * Email ID:  keith.loh.2021
  */
 
 import java.util.*;
@@ -44,14 +44,14 @@ public class Q2 {
         /* ************************************************
            The following code tests the method printNumberOfPicturesByCategory. */        
         
-        printNumberOfPicturesByCategory(album);
+        // printNumberOfPicturesByCategory(album);
         
         System.out.println();
 
         /* ************************************************
            The following code tests the method countPicturesTakenIn. */        
 
-        System.out.println("There are " + countPicturesTakenIn(album, 2013) + " pictures taken in 2013.");
+        // System.out.println("There are " + countPicturesTakenIn(album, 2013) + " pictures taken in 2013.");
         
     }
     
@@ -61,6 +61,10 @@ public class Q2 {
     // ***********************************************************************
     public static void insertPicture(Album album, int width, int height, String date, String title, char category) {
         // Insert your code here.
+        Resolution tempResolution = new Resolution(width, height);
+        Picture tempPict = new Picture(tempResolution, date,title, category);
+
+        album.addPicture(tempPict);
     }
     
     // ***********************************************************************
@@ -71,6 +75,8 @@ public class Q2 {
     // ***********************************************************************    
     public static void printNumberOfLargePictures(Album album, int numPixels) {
         // Insert your code here.
+        int numberOfLargePictures = album.getNumPictures() - album.getNumPicturesWithFewerPixelsThan(numPixels);
+        System.out.println(numberOfLargePictures);
     }
 
     // ***********************************************************************
@@ -82,6 +88,17 @@ public class Q2 {
     // ***********************************************************************
     public static void printPictureInfo(Album album, String title) {
         // Insert your code here.
+        Picture tempPict = album.getPicture(title);
+        if (tempPict != null){
+            String pictDate = tempPict.getDate();
+            Resolution pictResolution = tempPict.getResolution();
+            int pictPixels = pictResolution.getNumPixels();
+            System.out.printf("Picture is dated %s and the pixels of the picture is %d", pictDate, pictPixels);
+        }
+        else {
+            System.out.println(" no such picture ");
+        }
+
     }
     
     // ***********************************************************************

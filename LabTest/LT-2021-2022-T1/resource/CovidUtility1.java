@@ -2,7 +2,18 @@ import java.util.*;
 
 public class CovidUtility1 {
     public static SimpleDate[] getInOfficeDates(String target, List<Entry> entries) {
-        return null;
+        if (entries == null || entries.isEmpty()) {
+            throw new IllegalArgumentException("entries is null/empty");
+        }
+        Set<SimpleDate> inOfficeDates = new TreeSet<>();
+
+        for (Entry entry : entries){
+            if (entry.getEmployeeId().equals(target)){
+                inOfficeDates.add(entry.getStartDateTime().getDate());
+                inOfficeDates.add(entry.getEndDateTime().getDate());
+            }
+        }
+        return inOfficeDates.toArray(new SimpleDate[0]);
     }
 
     
