@@ -1,11 +1,12 @@
 /*
- * Name:
- * Email ID:
+ * Name: Keith Loh
+ * Email ID: keith.loh.2021
  */
- 
-public class Q1 {
-    public static void main(String[] args){
 
+import java.util.ArrayList;
+
+public class Q1 {
+    public static void main(String[] args) {
 
         System.out.println("Expected:23");
         System.out.println("Actual  :" + getSmallestPair(2345));
@@ -27,7 +28,6 @@ public class Q1 {
 
     }
 
-
     /*
      * Write the method getSmallestPair such that it takes in an integer say n
      * and returns an integer.
@@ -37,13 +37,26 @@ public class Q1 {
      * and that which appears consecutively
      *
      * For example if n is 2345, the possible pair of digits are 23, 45, 34
-     * Another example: if n is 10245, the possible pair of digits are 10,24, 2(02),45
+     * Another example: if n is 10245, the possible pair of digits are 10,24,
+     * 2(02),45
      */
-    public static int getSmallestPair(int number){
+    public static int getSmallestPair(int number) {
         // insert your code here.
-
-        return 0; // to make this code compile. Please modify accordingly!
+        String numberString = Integer.toString(number);
+        int numberLength = numberString.length();
+        if (numberLength == 1) {
+            return -1;
+        }
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < numberLength - 1; i++) {
+            String tempNumber = "" + numberString.charAt(i) + numberString.charAt(i + 1);
+            numbers.add(Integer.parseInt(tempNumber));
+        }
+        int min = numbers.get(0);
+        for (int i : numbers) {
+            min = min < i ? min : i;
+        }
+        return min; // to make this code compile. Please modify accordingly!
     }
 
-
-} 
+}
