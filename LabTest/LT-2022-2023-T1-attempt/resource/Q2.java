@@ -19,7 +19,6 @@ public class Q2 {
                 List<Employee> commonEmployees = new ArrayList<Employee>();
 
                 for (Employee tempEmployee1 : meeting1Employees) {
-
                         for (Employee tempEmployee2 : meeting2Employees) {
                                 if (tempEmployee1.equals(tempEmployee2)) {
                                         if (!commonEmployees.contains(tempEmployee1)) {
@@ -28,6 +27,7 @@ public class Q2 {
                                 }
                         }
                 }
+                // List Sort
                 commonEmployees.sort(Comparator.comparing(Employee::getName));
                 return commonEmployees;
         }

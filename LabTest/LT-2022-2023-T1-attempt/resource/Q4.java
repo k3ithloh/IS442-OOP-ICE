@@ -1,11 +1,44 @@
 /**
- * Name :
- * Email:
+ * Name : Keith Loh
+ * Email: keith.loh.2021@scis.smu.edu.sg
  */
+import java.util.*;
+import labtest.Meeting;
+import labtest.Conflict;
+import labtest.TimeSlot;
+import labtest.epoch.ScisDateTime;
+
 
 public class Q4 {
     public static List<Conflict> getConflicts(List<Meeting> scheduled) {
-        return null;
+
+        List<Conflict> result = new ArrayList<>();
+        int j = 0;
+        int k = 1;
+        while ( j < scheduled.size()){
+            if ( k >= scheduled.size()){
+                j ++;
+                k = j + 1;
+                continue;
+            }
+            Meeting meetingj = scheduled.get(j);
+            Meeting meetingk = scheduled.get(k);
+
+            TimeSlot mJSlot = meetingj.getSlot();
+            TimeSlot mKSlot = meetingk.getSlot();
+            ScisDateTime mJStart = mJSlot.getStart();
+            ScisDateTime mJEnd = mJSlot.getEnd();
+            ScisDateTime mKStart = mKSlot.getStart();
+            ScisDateTime mKEnd = mKSlot.getEnd();
+
+            // Compare to see if the time overlaps
+            if (!((mJStart.isBefore(mKStart) && mJEnd.isBefore(mKStart)) || (mJStart.isAfter(mKEnd) && mJEnd.isAfter(mKEnd)))){
+                Conflict conflict = new Conflict(meetingj, meetingk);
+                result.add(conflict);
+            }
+            k++;
+        }
+        return result;
     }
 
     public static void main(String[] args) {

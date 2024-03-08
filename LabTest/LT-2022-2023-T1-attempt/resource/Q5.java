@@ -1,11 +1,22 @@
 /**
- * Name :
- * Email:
+ * Name : Keith Loh
+ * Email: keith.loh.2021
  */
+import java.util.*;
+import labtest.Meeting;
+import labtest.Employee;
+
 
 public class Q5 {
 
     public static Map<String, Set<String>> getTopMeetingCompanions(List<Meeting> meetings) {
+        Map<String, Set<String>> result = new TreeMap<>();
+
+        Map<String, Integer> employeeMatching = new TreeMap<>();
+        for (Meeting meeting : meetings){
+            
+        }
+
         return null;
     }
 
