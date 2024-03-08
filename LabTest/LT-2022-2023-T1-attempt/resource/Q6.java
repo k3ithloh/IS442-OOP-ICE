@@ -1,12 +1,18 @@
+
 /**
- * Name :
- * Email:
+ * Name : Keith Loh
+ * Email: keith.loh.2021@scis.smu.edu.sg
  */
+import java.util.*;
+import labtest.TimeSlot;
+import labtest.epoch.ScisDate;
+import labtest.epoch.ScisTime;
+
 public class Q6 {
 
-
-    public static TimeSlot[] getFreeTimeSlots(List<TimeSlot> busySlots, 
+    public static TimeSlot[] getFreeTimeSlots(List<TimeSlot> busySlots,
             ScisDate targetDate, ScisTime workStart, ScisTime workEnd) {
+                
         return null;
     }
 
@@ -17,12 +23,10 @@ public class Q6 {
                     List.of(
                             new TimeSlot("12/12/2022 09:00", "12/12/2022 11:00"),
                             new TimeSlot("12/12/2022 11:00", "12/12/2022 13:39"),
-                            new TimeSlot("12/12/2022 17:00", "12/12/2022 17:30")
-                    ),
+                            new TimeSlot("12/12/2022 17:00", "12/12/2022 17:30")),
                     new ScisDate("12/12/2022"),
                     new ScisTime("09:00"),
-                    new ScisTime("18:00")
-            );
+                    new ScisTime("18:00"));
             System.out.printf("Test %d%n", tcNum++);
             System.out.println("Expected:[(12/12/2022 13:39, 12/12/2022 17:00), (12/12/2022 17:30, 12/12/2022 18:00)]");
             System.out.println("Actual  :" + Arrays.toString(result));
@@ -30,12 +34,10 @@ public class Q6 {
         }
         {
             TimeSlot[] result = getFreeTimeSlots(
-                    List.of(
-                    ),
+                    List.of(),
                     new ScisDate("12/12/2022"),
                     new ScisTime("09:00"),
-                    new ScisTime("18:00")
-            );
+                    new ScisTime("18:00"));
             System.out.printf("Test %d%n", tcNum++);
             System.out.println("Expected:[(12/12/2022 09:00, 12/12/2022 18:00)]");
             System.out.println("Actual  :" + Arrays.toString(result));
@@ -50,14 +52,13 @@ public class Q6 {
                             new TimeSlot("12/12/2022 07:30", "12/12/2022 08:30"),
                             new TimeSlot("12/12/2022 11:00", "12/12/2022 13:00"),
                             new TimeSlot("12/12/2022 17:00", "12/12/2022 17:30"),
-                            new TimeSlot("14/12/2022 05:00", "12/12/2022 07:00")
-                    ),
+                            new TimeSlot("14/12/2022 05:00", "12/12/2022 07:00")),
                     new ScisDate("12/12/2022"),
                     new ScisTime("10:00"),
-                    new ScisTime("18:00")
-            );
+                    new ScisTime("18:00"));
             System.out.printf("Test %d%n", tcNum++);
-            System.out.println("Expected:[(12/12/2022 10:00, 12/12/2022 11:00), (12/12/2022 13:00, 12/12/2022 17:00), (12/12/2022 17:30, 12/12/2022 18:00)]");
+            System.out.println(
+                    "Expected:[(12/12/2022 10:00, 12/12/2022 11:00), (12/12/2022 13:00, 12/12/2022 17:00), (12/12/2022 17:30, 12/12/2022 18:00)]");
             System.out.println("Actual  :" + Arrays.toString(result));
             System.out.println();
         }
