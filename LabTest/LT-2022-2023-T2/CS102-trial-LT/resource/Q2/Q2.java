@@ -13,7 +13,6 @@ public class Q2 {
     
         /* Creates an album. */
         Album album = new Album("My Photo Album");
-        
         /* *******************************************************************
            The following code tests the method insertPicture. */
         insertPicture(album, 40, 60, "1/1/2012", "New Year Party", 'p');
