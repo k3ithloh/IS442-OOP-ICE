@@ -1,6 +1,10 @@
 /**
  * Created by yeowleong on 16/5/14.
  */
+
+import java.util.*;
+import java.text.DecimalFormat;
+
 public class Product {
     private String name;
     private double price;
